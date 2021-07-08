@@ -8,30 +8,29 @@ import {
   moveDown,
   moveUp,
 } from "./formEditorLogic";
-import { Field, FieldType, FormSchema } from "./models";
+import { Field, FieldType } from "./models";
 import { T } from "../../translations";
 import AddFieldDropdown from "./AddFieldDropdown";
 
 import "./FormEditor.scss";
 
 interface FormEditorControlsProps {
-  schema: FormSchema;
+  value: Field[];
   field: Field;
+  onChange(fields: Field[]): void;
   onAddField(fieldType: FieldType, aboveFieldName: string): void;
-  onChangeFields(fields: Field[]): void;
   onRemoveField(fieldName: string): void;
   onEditField(fieldName: string): void;
 }
 
 const FormEditorControls = ({
-  schema,
+  value: fields,
   field,
   onAddField,
-  onChangeFields,
+  onChange,
   onRemoveField,
   onEditField,
 }: FormEditorControlsProps) => {
-  const { fields } = schema;
   const t = T((r) => r.FormEditor);
 
   return (
@@ -43,7 +42,7 @@ const FormEditorControls = ({
       <ButtonGroup className="mr-2">
         <Button
           size="sm"
-          onClick={() => onChangeFields(moveUp(fields, field.name))}
+          onClick={() => onChange(moveUp(fields, field.name))}
           variant="outline-secondary"
           disabled={!canMoveUp(fields, field.name)}
         >
@@ -51,7 +50,7 @@ const FormEditorControls = ({
         </Button>
         <Button
           size="sm"
-          onClick={() => onChangeFields(moveDown(fields, field.name))}
+          onClick={() => onChange(moveDown(fields, field.name))}
           variant="outline-secondary"
           disabled={!canMoveDown(fields, field.name)}
         >
