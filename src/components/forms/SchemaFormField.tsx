@@ -49,9 +49,13 @@ const SchemaFormField: React.FC<SchemaFormFieldProps> = ({
               </Form.Control.Feedback>
             )}
             {helpText && (
-              <Form.Text className="text-muted mb-3">{helpText}</Form.Text>
+              /* TODO div is a hack to force help text on a row of its own */
+              <div>
+                <Form.Text className="text-muted mb-3">{helpText}</Form.Text>
+              </div>
             )}
-          </Form.Check>{" "}
+          </Form.Check>
+          {}
         </Form.Group>
       );
     default:

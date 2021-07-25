@@ -26,7 +26,7 @@ export function useSchemaForm(
   const onSubmit = formikConfig.onSubmit ?? (() => {});
   const validationSchema = React.useMemo(() => fieldsToYup(fields), [fields]);
 
-  const updatedFormikConfig = {
+  const updatedFormikConfig: FormikConfig<any> = {
     ...formikConfig,
     onSubmit,
     initialValues,
