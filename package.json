@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently -kn nextdev,codegen \"next dev\" \"graphql-codegen -w\"",
     "build": "next build",
-    "start": "node .next/standalone/server.js",
-    "lint": "next lint",
+    "dev": "concurrently -kn nextdev,codegen \"next dev\" \"graphql-codegen -w\"",
+    "format": "prettier --write .",
+    "k8s:dev": "npm run k8s:generate && skaffold dev",
     "k8s:generate": "cd kubernetes && ts-node manifest.ts",
-    "k8s:dev": "npm run k8s:generate && skaffold dev"
+    "lint": "next lint",
+    "start": "node .next/standalone/server.js",
+    "test": "npm run lint && npm run test:format",
+    "test:format": "prettier --check ."
   },
   "dependencies": {
     "@apollo/client": "^3.9.0-alpha.3",
@@ -32,6 +35,8 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.52.0",
     "eslint-config-next": "^14.0.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "3.2.1",
     "sass": "^1.69.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2"
