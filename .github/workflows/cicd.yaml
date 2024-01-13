@@ -30,7 +30,6 @@ jobs:
           curl -Lo bin/kubectl https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl
           chmod +x bin/skaffold bin/kubectl
       - run: echo "$PWD/bin" >> $GITHUB_PATH
-
       - uses: docker/setup-buildx-action@v3
       - id: build
         run: |
@@ -68,7 +67,6 @@ jobs:
           curl -Lo bin/kubectl https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl
           chmod +x bin/skaffold bin/kubectl
       - run: echo "$PWD/bin" >> $GITHUB_PATH
-
       - run: |
           npm ci
           cd kubernetes && ENV=staging npx ts-node manifest.ts && cd ..
@@ -101,7 +99,6 @@ jobs:
           curl -Lo bin/kubectl https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl
           chmod +x bin/skaffold bin/kubectl
       - run: echo "$PWD/bin" >> $GITHUB_PATH
-
       - run: |
           npm ci
           cd kubernetes && ENV=production npx ts-node manifest.ts && cd ..

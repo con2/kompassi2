@@ -67,7 +67,8 @@ export default async function NewProgramFormSelectionPage({
     notFound();
   }
 
-  const skipOfferFormSelection = event?.program?.skipOfferFormSelection ?? false;
+  const skipOfferFormSelection =
+    event?.program?.skipOfferFormSelection ?? false;
   const offerForms = event.program?.offerForms ?? [];
 
   if (skipOfferFormSelection) {

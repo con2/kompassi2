@@ -11,7 +11,7 @@ export function generateStaticParams() {
   return supportedLanguages.map((locale) => ({ locale }));
 }
 
-export default function SplashView({ params: { locale }}: SplashViewProps) {
+export default function SplashView({ params: { locale } }: SplashViewProps) {
   const translations = getTranslations(locale);
 
   return (

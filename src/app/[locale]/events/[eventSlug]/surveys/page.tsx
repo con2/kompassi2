@@ -117,7 +117,7 @@ export default async function SurveysPage({ params }: Props) {
         if (survey.isActive) {
           if (survey.activeUntil) {
             message = t.attributes.isActive.untilTime(
-              new Date(survey.activeUntil)
+              new Date(survey.activeUntil),
             );
           } else {
             message = t.attributes.isActive.untilFurtherNotice;
@@ -126,7 +126,7 @@ export default async function SurveysPage({ params }: Props) {
           if (survey.activeFrom) {
             activityEmoji = "⏳";
             message = t.attributes.isActive.openingAt(
-              new Date(survey.activeFrom)
+              new Date(survey.activeFrom),
             );
           } else {
             message = t.attributes.isActive.closed;

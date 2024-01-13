@@ -29,7 +29,7 @@ export async function submit(
   locale: string,
   eventSlug: string,
   surveySlug: string,
-  formData: FormData
+  formData: FormData,
 ) {
   await getClient().mutate({
     mutation,
