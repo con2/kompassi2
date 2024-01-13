@@ -1,8 +1,8 @@
-import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
+import { notFound, redirect } from "next/navigation";
 
-import { getClient } from "@/apolloClient";
 import { gql } from "@/__generated__";
+import { getClient } from "@/apolloClient";
 import { getTranslations } from "@/translations";
 
 const query = gql(`

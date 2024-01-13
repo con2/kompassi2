@@ -9,6 +9,7 @@
     "k8s:dev": "npm run k8s:generate && skaffold dev",
     "k8s:generate": "cd kubernetes && ts-node manifest.ts",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "start": "node .next/standalone/server.js",
     "test": "npm run lint && npm run test:format",
     "test:format": "prettier --check ."
@@ -36,6 +37,7 @@
     "eslint": "^8.52.0",
     "eslint-config-next": "^14.0.1",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "prettier": "3.2.1",
     "sass": "^1.69.5",
     "ts-node": "^10.9.2",
